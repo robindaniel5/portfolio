@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Quote } from 'lucide-react';
-import ThynktechLogo from '../assets/thynktech_logo.JPG';
+import ThynktechLogo from '../assets/thynktech_logo.jpg';
 
 const stats = [
     { label: "EXPERIENCE", value: "1+ YRS" },
