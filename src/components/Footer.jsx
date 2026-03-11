@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Instagram, Linkedin, Github } from 'lucide-react';
-import DeveloperPhoto from '../assets/IMG-20251212-WA0007.JPG';
+import DeveloperPhoto from '../assets/IMG-20251212-WA0007.jpg';
 
 export default function Footer() {
     return (
