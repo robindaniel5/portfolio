@@ -31,7 +31,8 @@ export default function ContactSection() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:8081/message/send', {
+            const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+            const response = await fetch(`${apiBase}/message/send`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
