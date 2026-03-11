@@ -123,7 +123,7 @@ export default function ProjectsSection() {
                 </motion.div>
 
                 {/* Horizontal Slider Area */}
-                <div className="relative w-full max-w-5xl h-[600px] sm:h-[500px] md:h-[450px] flex items-center justify-center perspective-1000">
+                <div className="relative w-full max-w-5xl h-[700px] sm:h-[600px] md:h-[450px] flex items-center justify-center perspective-1000">
 
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
@@ -138,18 +138,18 @@ export default function ProjectsSection() {
                                 opacity: { duration: 0.4 },
                                 rotateY: { duration: 0.6 }
                             }}
-                            className="absolute w-full h-full flex flex-col md:flex-row items-center border border-white/10 bg-cinematic-gray/30 backdrop-blur-md rounded-2xl shadow-2xl shadow-black overflow-visible"
+                            className="absolute w-full h-full flex flex-col md:flex-row items-center border border-white/10 bg-cinematic-gray/30 backdrop-blur-md rounded-2xl shadow-2xl shadow-black overflow-hidden md:overflow-visible"
                         >
                             {/* Project Info Panel */}
-                            <div className="w-full md:w-1/2 p-10 md:p-14 flex flex-col h-full bg-gradient-to-r from-cinematic-darker/90 to-transparent rounded-l-2xl z-20">
+                            <div className="w-full md:w-1/2 p-8 md:p-14 flex flex-col h-full bg-gradient-to-b md:bg-gradient-to-r from-cinematic-darker/90 to-transparent rounded-t-2xl md:rounded-l-2xl z-20">
                                 <span className="font-heading text-[10px] tracking-[0.3em] uppercase text-cinematic-red mb-4 block">
                                     {project.subtitle}
                                 </span>
-                                <h3 className="font-heading text-3xl md:text-5xl font-bold uppercase tracking-wide mb-6 group-hover:text-cinematic-red transition-colors duration-300 drop-shadow-lg">
+                                <h3 className="font-heading text-2xl md:text-5xl font-bold uppercase tracking-wide mb-6 group-hover:text-cinematic-red transition-colors duration-300 drop-shadow-lg">
                                     {project.title}
                                 </h3>
 
-                                <p className="text-white/60 font-body text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                                <p className="text-white/60 font-body text-xs md:text-base leading-relaxed mb-8 flex-grow line-clamp-4 md:line-clamp-none">
                                     {project.description}
                                 </p>
 
@@ -157,7 +157,7 @@ export default function ProjectsSection() {
                                     {project.tags.map((tag, i) => (
                                         <span
                                             key={i}
-                                            className="font-heading text-[10px] tracking-widest uppercase px-3 py-1.5 border border-white/10 text-white/40 bg-black/40 rounded-sm"
+                                            className="font-heading text-[8px] md:text-[10px] tracking-widest uppercase px-2 py-1 md:px-3 md:py-1.5 border border-white/10 text-white/40 bg-black/40 rounded-sm"
                                         >
                                             {tag}
                                         </span>
@@ -178,8 +178,8 @@ export default function ProjectsSection() {
                                 </div>
                             </div>
 
-                            {/* Overlapping Project Image with 3D Tilt */}
-                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[90%] sm:w-[80%] md:w-[60%] h-[200px] sm:h-[300px] md:h-[110%] md:-right-10 z-10 translate-y-10 md:translate-y-0 opacity-50 md:opacity-100 group">
+                            {/* Overlapping Project Image with 3D Tilt (Adjusted for mobile) */}
+                            <div className="absolute bottom-0 md:top-1/2 md:-translate-y-1/2 w-full md:w-[60%] h-[200px] sm:h-[300px] md:h-[110%] md:-right-10 z-10 translate-y-0 md:translate-y-0 opacity-40 md:opacity-100 group">
                                 <motion.div
                                     whileHover={{
                                         scale: 1.05,
@@ -188,12 +188,12 @@ export default function ProjectsSection() {
                                         z: 50
                                     }}
                                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                                    className="w-full h-full rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border-4 border-white/10 object-cover"
+                                    className="w-full h-full rounded-b-2xl md:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border-t-4 md:border-4 border-white/10 object-cover"
                                 >
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover filter brightness-75 hover:brightness-100 transition-all duration-500"
+                                        className="w-full h-full object-cover filter brightness-50 md:brightness-75 hover:brightness-100 transition-all duration-500"
                                     />
                                     {/* Cinematic vignette on image */}
                                     <div className="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none" />
@@ -217,8 +217,8 @@ export default function ProjectsSection() {
                                 <div
                                     key={i}
                                     className={`w-2 h-2 rounded-full transition-all duration-500 ${currentIndex === i
-                                            ? 'bg-cinematic-red scale-150 shadow-[0_0_10px_rgba(225,29,72,0.8)]'
-                                            : 'bg-white/20'
+                                        ? 'bg-cinematic-red scale-150 shadow-[0_0_10px_rgba(225,29,72,0.8)]'
+                                        : 'bg-white/20'
                                         }`}
                                 />
                             ))}

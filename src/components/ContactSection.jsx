@@ -67,16 +67,28 @@ export default function ContactSection() {
             />
             <div className="max-w-7xl mx-auto px-6 w-full relative z-10 contact-form-area h-full">
 
-                <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-20 lg:gap-40 items-start">
+                <div className="flex flex-col md:grid md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr] gap-12 md:gap-20 lg:gap-40 items-start">
 
-                    {/* Left Side: Vertical Heading */}
+                    {/* Left Side: Vertical Heading (Stacked on mobile) */}
                     <motion.div
                         initial={{ opacity: 0, scaleY: 0 }}
                         animate={isInView ? { opacity: 1, scaleY: 1 } : {}}
                         transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-                        className="origin-top"
+                        className="origin-top md:block hidden"
                     >
                         <h2 className="font-heading text-[12vw] md:text-[8vw] lg:text-[10vw] font-black uppercase tracking-tighter leading-none text-black vertical-text opacity-10 select-none">
+                            CONNECT.
+                        </h2>
+                    </motion.div>
+
+                    {/* Mobile Only Horizontal Heading */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.8 }}
+                        className="md:hidden"
+                    >
+                        <h2 className="font-heading text-6xl font-black uppercase tracking-tighter text-black opacity-10">
                             CONNECT.
                         </h2>
                     </motion.div>
@@ -89,7 +101,7 @@ export default function ContactSection() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="max-w-2xl w-full"
                         >
-                            <div className="mb-20">
+                            <div className="mb-12 md:mb-20">
                                 <h3 className="font-heading text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-black">
                                     LET’S CRAFT <br /> YOUR IDEA.
                                 </h3>
@@ -98,8 +110,8 @@ export default function ContactSection() {
                                 </p>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-12 w-full">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-8 md:gap-12 w-full">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                                     <input
                                         type="text"
                                         name="name"
@@ -133,7 +145,7 @@ export default function ContactSection() {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="mt-8 bg-black text-white py-5 px-10 font-heading text-lg font-bold uppercase tracking-widest border border-transparent hover:border-minimal-red transition-colors duration-300 w-fit"
+                                    className="mt-4 md:mt-8 bg-black text-white py-4 md:py-5 px-8 md:px-10 font-heading text-base md:text-lg font-bold uppercase tracking-widest border border-transparent hover:border-minimal-red transition-colors duration-300 w-full md:w-fit"
                                 >
                                     Send Message
                                 </motion.button>

@@ -41,13 +41,13 @@ export default function SkillsSection() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="mb-24"
                 >
-                    <h2 className="font-heading text-[10vw] md:text-[8vw] leading-[0.85] font-black tracking-tighter uppercase whitespace-normal break-words">
+                    <h2 className="font-heading text-6xl md:text-[8vw] leading-[0.85] font-black tracking-tighter uppercase whitespace-normal break-words">
                         CORE <br /> <span className="text-minimal-red">SKILLS</span>
                     </h2>
                 </motion.div>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16 border-t border-white/10 pt-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16 border-t border-white/10 pt-16">
                     {skills.map((skill, i) => (
                         <motion.div
                             key={i}

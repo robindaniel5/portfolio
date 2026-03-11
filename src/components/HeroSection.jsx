@@ -34,24 +34,24 @@ export default function HeroSection() {
             <motion.div style={{ opacity: opacityHero }} className="relative z-10 w-full max-w-[1400px] mx-auto px-6 h-full flex flex-col justify-center">
 
                 {/* Main Content Area */}
-                <div className="relative flex flex-col items-center justify-center w-full min-h-[65vh]">
+                <div className="relative flex flex-col items-center justify-center w-full min-h-[70vh] md:min-h-[65vh]">
 
-                    {/* Flanking Name Layout */}
+                    {/* Flanking Name Layout (Stacked on mobile) */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 w-full">
-                        <div className="flex w-full items-center justify-center gap-12 md:gap-24">
+                        <div className="flex flex-col md:flex-row w-full items-center justify-center gap-0 md:gap-24">
                             <motion.h1
                                 style={{ x: xRobin }}
-                                className="font-heading text-[10vw] md:text-[12vw] leading-none font-black uppercase tracking-tighter text-white select-none whitespace-nowrap"
+                                className="font-heading text-[18vw] md:text-[12vw] leading-none font-black uppercase tracking-tighter text-white select-none whitespace-nowrap md:translate-y-0 -translate-y-8"
                             >
                                 ROBIN
                             </motion.h1>
 
-                            {/* Empty space for photo in between */}
-                            <div className="w-[30vw] max-w-[300px]" />
+                            {/* Empty space for photo in between (Hidden on mobile) */}
+                            <div className="hidden md:block w-[30vw] max-w-[300px]" />
 
                             <motion.h1
                                 style={{ x: xDaniel }}
-                                className="font-heading text-[10vw] md:text-[12vw] leading-none font-black uppercase tracking-tighter text-white select-none whitespace-nowrap"
+                                className="font-heading text-[18vw] md:text-[12vw] leading-none font-black uppercase tracking-tighter text-white select-none whitespace-nowrap md:translate-y-0 translate-y-8"
                             >
                                 DANIEL
                             </motion.h1>
@@ -61,7 +61,7 @@ export default function HeroSection() {
                     {/* Central Portrait (Foreground) */}
                     <motion.div
                         style={{ y: yImage, scale: scaleImage, x: xImage }}
-                        className="relative z-20 w-[60vw] max-w-[380px] aspect-[3.5/4] overflow-hidden rounded-sm"
+                        className="relative z-20 w-[75vw] sm:w-[60vw] max-w-[380px] aspect-[3.5/4] overflow-hidden rounded-sm"
                     >
                         <img
                             src={DeveloperPhoto}
@@ -78,9 +78,9 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8, duration: 0.6 }}
-                        className="relative z-30 mt-8 mb-4 pointer-events-none"
+                        className="relative z-30 mt-12 md:mt-8 mb-4 pointer-events-none px-6"
                     >
-                        <p className="font-heading text-xs md:text-sm tracking-[0.3em] uppercase font-bold text-minimal-red text-center">
+                        <p className="font-heading text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.3em] uppercase font-bold text-minimal-red text-center">
                             Java • Spring Boot • React JS • Tailwind CSS • MySQL
                         </p>
                     </motion.div>
