@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* ────── Ultra-Modern Minimalist Theme ────── */
+@theme {
+  --color-minimal-dark: #0f1115;
+  /* Deep gray/near black */
+  --color-minimal-darker: #050608;
+  /* Darker shade */
+  --color-minimal-light: #f7f7f7;
+  /* Off-white background for light theme */
+  --color-minimal-white: #ffffff;
+  --color-minimal-red: #ff2a2a;
+  /* Stark vibrant red */
+
+  --font-heading: 'Oswald', sans-serif;
+  /* Keep Oswald for condensed headers */
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ────── Base Reset ────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-minimal-dark);
+  color: var(--color-minimal-white);
+  overflow-x: hidden;
+  transition: background-color 0.8s ease, color 0.8s ease;
+  cursor: none;
+  /* Hide default for custom magnetic cursor */
+}
+
+/* ────── Selection ────── */
+::selection {
+  background-color: var(--color-minimal-red);
+  color: var(--color-minimal-white);
+}
+
+/* ────── Custom Scrollbar ────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-minimal-red);
+  border-radius: 0;
+}
+
+/* ────── Grid Layout System ────── */
+.grid-lines-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  background-position: center center;
+}
+
+.grid-lines-light {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  background-position: center center;
+}
+
+/* Vertical Text Utility */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* Minimalist Form Inputs */
+.minimal-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(225, 42, 42, 0.1);
+  padding: 1rem 0;
+  width: 100%;
+  font-family: var(--font-body);
+  transition: border-bottom-color 0.4s ease;
+}
+
+.minimal-input:focus {
+  outline: none;
+  border-bottom-color: var(--color-minimal-red);
+}
+
+.minimal-input::placeholder {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  opacity: 0.3;
+}
+
+/* ────── Animations: Expanding Target Pulse ────── */
+@keyframes pulseTarget {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+    border-width: 2px;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 0.5px;
+  }
+}
+
+.animate-target {
+  animation: pulseTarget 3s ease-out infinite;
+}
+
+/* ────── Animations: Circular Text Rotation ────── */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+/* ────── Interactive Button (Rotating text hover) ────── */
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-interactive .btn-text-normal {
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-interactive .btn-text-hover {
+  position: absolute;
+  transform: translateY(100%) rotate(5deg);
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-interactive:hover .btn-text-normal {
+  transform: translateY(-100%) rotate(-5deg);
+}
+
+.btn-interactive:hover .btn-text-hover {
+  transform: translateY(0) rotate(0);
+}
